@@ -117,6 +117,8 @@ if st.button('Submit'):
     st.write(X.shape)
     st.write(numVal)
     st.write(catVal)
+    st.write(df_num)
+    st.write(df_cat)
     #hmdannmodel = pickle.load(open('nn_reg.pkl', 'rb'))
     #prediction = hmdannmodel.predict(X)
    
