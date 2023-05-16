@@ -116,6 +116,7 @@ if st.button('Submit'):
     st.write(catVal)
     st.write(df_num)
     st.write(df_cat)
+    st.write(scaler.fit_transform(df_num.values))
     st.write(numDF)
     st.write(catDF)
     st.write(X.shape)
