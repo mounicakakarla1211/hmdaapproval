@@ -112,7 +112,12 @@ if st.button('Submit'):
                            "co_applicant_credit_scoring_model":[co_applicant_credit_scoring_model], "loan_type":[loan_type], "loan_purpose":[loan_purpose], 
                            "construction_method":[construction_method], "occupancy_type":[occupancy_type],"purchaser_type":[purchaser_type],
                            "business_or_commercial_purpose":[business_or_commercial_purpose]})
-    catDF = pd.get_dummies(df_cat,)    
+    catDF = pd.get_dummies(df_cat,['loan_type', 'loan_purpose', 'construction_method', 'occupancy_type',
+       'purchaser_type', 'applicant_credit_scoring_model',
+       'co_applicant_credit_scoring_model', 'debt_to_income_ratio',
+       'business_or_commercial_purpose', 'applicant_age', 'applicant_sex',
+       'co_applicant_sex', 'applicant_ethnicity_1', 'co_applicant_ethnicity_1',
+       'applicant_race_1', 'co_applicant_race_1', 'state_code'])    
     st.write(catDF)
     X = pd.concat([catDF, df_num],axis=1)
     st.subheader("Prediction:")
