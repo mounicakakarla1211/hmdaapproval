@@ -113,6 +113,8 @@ if st.button('Submit'):
     X = pd.concat([catDF, numDF],axis=1)
     st.subheader("Prediction:")
     st.write(X.shape)
+    st.write(numDF)
+    st.write(catDF)
     #hmdannmodel = pickle.load(open('nn_reg.pkl', 'rb'))
     #prediction = hmdannmodel.predict(X)
    
