@@ -132,19 +132,13 @@ if st.button('Submit'):
        'business_or_commercial_purpose', 'applicant_age', 'applicant_sex',
        'co_applicant_sex', 'applicant_ethnicity_1', 'co_applicant_ethnicity_1',
        'applicant_race_1', 'co_applicant_race_1', 'state_code'],dtype=int)    
-    st.write(catDF)
     initial_column_df = pd.read_csv('model_catcolumns.csv')
     columns = initial_column_df['Features']
     fixed_d = fix_columns(catDF, columns)
-    st.write(len(columns))
-    st.write(len(fixed_d))
     X = pd.concat([fixed_d, df_num],axis=1)
     st.subheader("Prediction:")
-    st.write(numVal)
-    st.write(fixed_d)
-    st.write(X.shape)
     hmdannmodel = pickle.load(open('nn_reg.pkl', 'rb'))
     prediction = hmdannmodel.predict(X)
-    st.write(prediction)
+    st.write(prediction[0])
    
 
