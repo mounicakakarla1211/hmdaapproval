@@ -5,7 +5,7 @@ import numpy as np
 from sklearn import datasets
 
 def format_func(option):
-    return CHOICES[option]
+    return loan_type_choices[option]
 
 st.title("HMDA Loan Approval Predictor")
 
