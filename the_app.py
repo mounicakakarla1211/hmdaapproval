@@ -4,12 +4,10 @@ import joblib
 import numpy as np
 from sklearn import datasets
 
-iris = datasets.load_iris()  # Add this line to load the Iris dataset
-
-st.title("Iris Flower Classifier")
+st.title("HMDA Loan Approval Predictor")
 
 st.write("""
-Select the features of the Iris flower you'd like to classify:
+Enter the application details:
 """)
 
 sepal_length = st.slider("Sepal Length (cm)", 4.3, 7.9, 5.8)
