@@ -115,4 +115,4 @@ if st.button('Submit'):
     prediction = hmdannmodel.predict(X)
 
     st.subheader("Prediction:")
-    st.write(prediction)
+    st.write(X.shape)
