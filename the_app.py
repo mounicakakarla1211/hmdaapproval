@@ -94,9 +94,9 @@ with col3:
     business_or_commercial_purpose_choices = {"1": "1", "2": "2"}
     business_or_commercial_purpose = st.selectbox('Business or Commericial Purpose',options=list(business_or_commercial_purpose_choices.keys()), format_func=business_or_commercial_purpose_func)
 if st.button('Submit'):
-    income_log = math.log(income)
-    loan_amount_log = math.log(loan_amount)
-    numVal = [combined_loan_to_value_ratio,loan_term,income_log,loan_amount_log]
+    income_log = math.log(int(income))
+    loan_amount_log = math.log(float(loan_amount))
+    numVal = [float(combined_loan_to_value_ratio),float(loan_term),income_log,loan_amount_log]
     df_num = pd.DataFrame(numVal, columns=["combined_loan_to_value_ratio","loan_term","income_log","loan_amount_log"])
     catVal = [applicant_age,applicant_sex,co_applicant_sex,applicant_ethnicity_1,co_applicant_ethnicity_1,applicant_race_1,co_applicant_race_1,state_code,
               debt_to_income_ratio,applicant_credit_scoring_model,co_applicant_credit_scoring_model,loan_type,loan_purpose,construction_method,occupancy_type,
