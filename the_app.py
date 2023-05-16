@@ -74,6 +74,12 @@ with col2:
     applicant_credit_scoring_model = st.selectbox('Applicant Credit Scoring Model',options=list(applicant_credit_scoring_model_choices.keys()), format_func=applicant_credit_scoring_model_func)
     co_applicant_credit_scoring_model_choices = {1: "1", 2: "2", 3: "3"}
     co_applicant_credit_scoring_model = st.selectbox('Coapplicant Credit Scoring Model',options=list(co_applicant_credit_scoring_model_choices.keys()), format_func=co_applicant_credit_scoring_model_func)
+    loan_amount = st.text_input('Loan Amount', '')
+    loan_type_choices = {1: "1", 2: "2", 3: "3"}
+    loan_type = st.selectbox('Loan Type',options=list(loan_type_choices.keys()), format_func=loan_type_func)
+    loan_purpose_choices = {1: "1", 2: "2", 4: "4", 31:"31", 32:"32"}
+    loan_purpose = st.selectbox('Loan Purpose',options=list(loan_purpose_choices.keys()), format_func=loan_purpose_func)
+    loan_term = st.text_input('Loan Term', '')
 with col3:
     combined_loan_to_value_ratio = st.text_input('Combined Loan To Value Ratio', '')
     construction_method_choices = {1: "1", 2: "2"}
@@ -84,12 +90,6 @@ with col3:
     purchaser_type = st.selectbox('Purchase Type',options=list(purchaser_type_choices.keys()), format_func=purchaser_type_func)
     business_or_commercial_purpose_choices = {1: "1", 2: "2", 3: "3"}
     business_or_commercial_purpose = st.selectbox('Business or Commericial Purpose',options=list(business_or_commercial_purpose_choices.keys()), format_func=business_or_commercial_purpose_func)
-    loan_amount = st.text_input('Loan Amount', '')
-    loan_type_choices = {1: "1", 2: "2", 3: "3"}
-    loan_type = st.selectbox('Loan Type',options=list(loan_type_choices.keys()), format_func=loan_type_func)
-    loan_purpose_choices = {1: "1", 2: "2", 4: "4", 31:"31", 32:"32"}
-    loan_purpose = st.selectbox('Loan Purpose',options=list(loan_purpose_choices.keys()), format_func=loan_purpose_func)
-    loan_term = st.text_input('Loan Term', '')
 #features = np.array([[sepal_length, sepal_width, petal_length, petal_width]])
 
 #iris_rf_model = joblib.load('iris_rf_model.pkl')
