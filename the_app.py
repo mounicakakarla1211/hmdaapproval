@@ -100,6 +100,8 @@ if st.button('Submit'):
     clvr = float(combined_loan_to_value_ratio)
     lt = float(loan_term)
     numVal = np.array([clvr, lt, income_log, loanamount_log])
+    scaler = RobustScaler()
+    st.write(scaler.fit_transform(numVal.T))
     df_num = pd.DataFrame(numVal, columns=["combined_loan_to_value_ratio","loan_term","income_log","loanamount_log"])
     catVal = np.array([applicant_age, applicant_sex, co_applicant_sex, applicant_ethnicity_1, co_applicant_ethnicity_1, applicant_race_1, co_applicant_race_1, state_code,
               debt_to_income_ratio, applicant_credit_scoring_model, co_applicant_credit_scoring_model, loan_type, loan_purpose, construction_method, occupancy_type,
@@ -107,7 +109,6 @@ if st.button('Submit'):
     df_cat = pd.DataFrame(catVal, columns=["applicant_age", "applicant_sex", "co_applicant_sex", "applicant_ethnicity_1", "co_applicant_ethnicity_1", "applicant_race_1", "co_applicant_race_1", "state_code",
               "debt_to_income_ratio", "applicant_credit_scoring_model", "co_applicant_credit_scoring_model", "loan_type", "loan_purpose", "construction_method", "occupancy_type",
               "purchaser_type", "business_or_commercial_purpose"])
-    scaler = RobustScaler()
     numDF = pd.DataFrame(scaler.fit_transform(df_num.values), columns=df_num.columns, index=df_num.index)
     catDF = pd.get_dummies(df_cat, drop_first=True)
     X = pd.concat([catDF, numDF],axis=1)
@@ -116,7 +117,6 @@ if st.button('Submit'):
     st.write(catVal)
     st.write(df_num)
     st.write(df_cat)
-    st.write(scaler.fit_transform(numVal.T))
     st.write(numDF)
     st.write(catDF)
     st.write(X.shape)
