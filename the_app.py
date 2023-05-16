@@ -111,8 +111,9 @@ if st.button('Submit'):
     numDF = pd.DataFrame(scaler.fit_transform(df_num.values),columns=df_num.columns,index=df_num.index)
     catDF = pd.get_dummies(df_cat,drop_first=True)
     X = pd.concat([catDF, numDF],axis=1)
-    hmdannmodel = pickle.load(open('nn_reg.pkl', 'rb'))
-    prediction = hmdannmodel.predict(X)
-
     st.subheader("Prediction:")
     st.write(X.shape)
+    #hmdannmodel = pickle.load(open('nn_reg.pkl', 'rb'))
+    #prediction = hmdannmodel.predict(X)
+   
+
