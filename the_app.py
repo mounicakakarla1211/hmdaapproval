@@ -139,6 +139,9 @@ if st.button('Submit'):
     st.subheader("Prediction:")
     hmdannmodel = pickle.load(open('nn_reg.pkl', 'rb'))
     prediction = hmdannmodel.predict(X)
-    st.write(prediction[0])
+    if prediction[0] == 1:
+        st.write("Approved")
+    else:
+        st.write("Not Approved")
    
 
