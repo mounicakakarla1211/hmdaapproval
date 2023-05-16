@@ -98,11 +98,11 @@ if st.button('Submit'):
     loan_amount_log = math.log(float(loan_amount))
     clvr = float(combined_loan_to_value_ratio)
     lt = float(loan_term)
-    numVal = [clvr, lt, income_log, loan_amount_log]
+    numVal = [[clvr, lt, income_log, loan_amount_log]]
     df_num = pd.DataFrame(numVal, columns=["combined_loan_to_value_ratio","loan_term","income_log","loan_amount_log"])
-    catVal = [applicant_age, applicant_sex, co_applicant_sex, applicant_ethnicity_1, co_applicant_ethnicity_1, applicant_race_1, co_applicant_race_1, state_code,
+    catVal = [[applicant_age, applicant_sex, co_applicant_sex, applicant_ethnicity_1, co_applicant_ethnicity_1, applicant_race_1, co_applicant_race_1, state_code,
               debt_to_income_ratio, applicant_credit_scoring_model, co_applicant_credit_scoring_model, loan_type, loan_purpose, construction_method, occupancy_type,
-              purchaser_type, business_or_commercial_purpose]
+              purchaser_type, business_or_commercial_purpose]]
     df_cat =pd.DataFrame(catVal, columns=["applicant_age","applicant_sex","co_applicant_sex","applicant_ethnicity_1","co_applicant_ethnicity_1","applicant_race_1","co_applicant_race_1","state_code",
               "debt_to_income_ratio","applicant_credit_scoring_model","co_applicant_credit_scoring_model","loan_type","loan_purpose","construction_method","occupancy_type",
               "purchaser_type","business_or_commercial_purpose"])
