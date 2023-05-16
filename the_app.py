@@ -102,16 +102,17 @@ if st.button('Submit'):
     numVal = np.array([clvr, lt, income_log, loanamount_log])
     scaler = RobustScaler()
     st.write(scaler.fit_transform(numVal.reshape(-1,1)))
-    df_num = pd.DataFrame(numVal, columns=["combined_loan_to_value_ratio","loan_term","income_log","loanamount_log"])
+    numVal_Scaled = scaler.fit_transform(numVal.reshape(-1,1))
+    df_num = pd.DataFrame(numVal_Scaled, columns=["combined_loan_to_value_ratio","loan_term","income_log","loanamount_log"])
     catVal = np.array([applicant_age, applicant_sex, co_applicant_sex, applicant_ethnicity_1, co_applicant_ethnicity_1, applicant_race_1, co_applicant_race_1, state_code,
               debt_to_income_ratio, applicant_credit_scoring_model, co_applicant_credit_scoring_model, loan_type, loan_purpose, construction_method, occupancy_type,
               purchaser_type, business_or_commercial_purpose])
-    df_cat = pd.DataFrame(catVal, columns=["applicant_age", "applicant_sex", "co_applicant_sex", "applicant_ethnicity_1", "co_applicant_ethnicity_1", "applicant_race_1", "co_applicant_race_1", "state_code",
+    catVal_t = catVal.reshape(-1,1)
+    df_cat = pd.DataFrame(catVal_t, columns=["applicant_age", "applicant_sex", "co_applicant_sex", "applicant_ethnicity_1", "co_applicant_ethnicity_1", "applicant_race_1", "co_applicant_race_1", "state_code",
               "debt_to_income_ratio", "applicant_credit_scoring_model", "co_applicant_credit_scoring_model", "loan_type", "loan_purpose", "construction_method", "occupancy_type",
               "purchaser_type", "business_or_commercial_purpose"])
-    numDF = pd.DataFrame(scaler.fit_transform(df_num.values), columns=df_num.columns, index=df_num.index)
     catDF = pd.get_dummies(df_cat, drop_first=True)
-    X = pd.concat([catDF, numDF],axis=1)
+    X = pd.concat([catDF, df_num],axis=1)
     st.subheader("Prediction:")
     st.write(numVal)
     st.write(catVal)
