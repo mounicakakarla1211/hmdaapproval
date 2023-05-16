@@ -137,6 +137,8 @@ if st.button('Submit'):
     initial_column_df = pd.read_csv('model_columns.csv')
     columns = initial_column_df['Features']
     fixed_d = fix_columns(catDF, columns)
+    st.write(len(columns))
+    st.write(len(fixed_d))
     X = pd.concat([fixed_d, df_num],axis=1)
     st.subheader("Prediction:")
     st.write(numVal)
