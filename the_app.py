@@ -49,7 +49,7 @@ Enter the application details:
 """)
 col1, col2, col3 = st.columns(3)
 with col1:
-    applicant_age_choices = {1: "1", 2: "2", 3: "3"}
+    applicant_age_choices = {"less25": "<25", "25-34": "25-34", "35-44": "35-44","45-54":"45-54","55-64":"55-64","65-74":"65-74",">74":"greater74"}
     applicant_age = st.selectbox('Applicant Age',options=list(applicant_age_choices.keys()), format_func=applicant_age_func)
     applicant_sex_choices = {1: "1", 2: "2", 3: "3"}
     applicant_sex = st.selectbox('Applicant Sex',options=list(applicant_sex_choices.keys()), format_func=applicant_sex_func)
