@@ -4,22 +4,8 @@ import joblib
 import numpy as np
 from sklearn import datasets
 
-def loan_type_func(option):
-    return loan_type_choices[option]
-def loan_purpose_func(option):
-    return loan_purpose_choices[option]
-def construction_method_func(option):
-    return construction_method_choices[option]
-def occupancy_type_func(option):
-    return occupancy_type_choices[option]
-def purchaser_type_func(option):
-    return purchaser_type_choices[option]
-def applicant_credit_scoring_model_func(option):
-    return applicant_credit_scoring_model_choices[option]
-def co_applicant_credit_scoring_model_func(option):
-    return co_applicant_credit_scoring_model_choices[option]
-def debt_to_income_ratio_func(option):
-    return debt_to_income_ratio_choices[option]
+def format_func(choices,option):
+    return choices[option]
 
 st.title("HMDA Loan Approval Predictor")
 
@@ -29,7 +15,7 @@ Enter the application details:
 col1, col2, col3 = st.columns(3)
 with col1:
     applicant_age_choices = {1: "1", 2: "2", 3: "3"}
-    applicant_age = st.selectbox('Applicant Age',options=list(applicant_age_choices.keys()), format_func=applicant_age_func)
+    applicant_age = st.selectbox('Applicant Age',options=list(applicant_age_choices.keys()), format_func=format_func(applicant_age_choices,option))
     applicant_sex_choices = {1: "1", 2: "2", 3: "3"}
     applicant_sex = st.selectbox('Applicant Sex',options=list(applicant_sex_choices.keys()), format_func=applicant_sex_func)
     co_applicant_sex_choices = {1: "1", 2: "2", 3: "3"}
