@@ -117,7 +117,7 @@ if st.button('Submit'):
        'co_applicant_credit_scoring_model', 'debt_to_income_ratio',
        'business_or_commercial_purpose', 'applicant_age', 'applicant_sex',
        'co_applicant_sex', 'applicant_ethnicity_1', 'co_applicant_ethnicity_1',
-       'applicant_race_1', 'co_applicant_race_1', 'state_code'])    
+       'applicant_race_1', 'co_applicant_race_1', 'state_code'],dtype=int)    
     st.write(catDF)
     X = pd.concat([catDF, df_num],axis=1)
     st.subheader("Prediction:")
