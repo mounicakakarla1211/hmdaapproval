@@ -44,6 +44,21 @@ def loan_type_func(option):
     return loan_type_choices[option]
 def loan_purpose_func(option):
     return loan_purpose_choices[option]
+#The next function will add missing columns (in response to df_train)
+def add_missing_dummy_columns(df, columns):
+    missing_cols = set(columns) - set(df.columns)
+    for c in missing_cols:
+        df[c] = 0
+ 
+#The next function will delete extra columns (in response to df_train)
+def fix_columns(df, columns):
+    add_missing_dummy_columns(df, columns)
+    # make sure we have all the columns we need
+    assert(set(columns) - set(df.columns) == set())
+    extra_cols = set(df.columns) - set(columns)
+    if extra_cols:
+        df = df[columns]
+    return df
 st.set_page_config(layout="wide")
 
 st.title("HMDA Loan Approval Predictor")
@@ -117,9 +132,12 @@ if st.button('Submit'):
        'co_applicant_credit_scoring_model', 'debt_to_income_ratio',
        'business_or_commercial_purpose', 'applicant_age', 'applicant_sex',
        'co_applicant_sex', 'applicant_ethnicity_1', 'co_applicant_ethnicity_1',
-       'applicant_race_1', 'co_applicant_race_1', 'state_code'],dtype=float)    
+       'applicant_race_1', 'co_applicant_race_1', 'state_code'],dtype=int)    
     st.write(catDF)
-    X = pd.concat([catDF, df_num],axis=1)
+    initial_column_df = pd.read_csv('model_columns.csv')
+    columns = initial_column_df['Features']
+    fixed_d = fix_columns(catDF, columns)
+    X = pd.concat([fixed_d, df_num],axis=1)
     st.subheader("Prediction:")
     st.write(numVal)
     st.write(df_num)
