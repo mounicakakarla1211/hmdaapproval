@@ -17,7 +17,7 @@ loan_amount = st.text_input('Loan Amount', '')
 income = st.text_input('Income', '')
 loan_term = st.text_input('Loan Term', '')
 combined_loan_to_value_ratio = st.text_input('Combined Loan To Value Ratio', '')
-loan_type_choices = {1: "10", 2: "22", 3: "32"}
+loan_type_choices = {1: "1", 2: "2", 3: "3"}
 loan_type = st.selectbox('Loan Type',options=list(loan_type_choices.keys()), format_func=format_func)
 
 
