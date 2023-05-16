@@ -15,7 +15,7 @@ Enter the application details:
 col1, col2, col3 = st.columns(3)
 with col1:
     applicant_age_choices = {1: "1", 2: "2", 3: "3"}
-    applicant_age = st.selectbox('Applicant Age',options=list(applicant_age_choices.keys()), format_func=format_func(applicant_age_choices,option))
+    applicant_age = st.selectbox('Applicant Age',options=list(applicant_age_choices.keys()), format_func=format_func(applicant_age_choices))
     applicant_sex_choices = {1: "1", 2: "2", 3: "3"}
     applicant_sex = st.selectbox('Applicant Sex',options=list(applicant_sex_choices.keys()), format_func=applicant_sex_func)
     co_applicant_sex_choices = {1: "1", 2: "2", 3: "3"}
