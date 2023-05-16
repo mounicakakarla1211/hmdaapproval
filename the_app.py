@@ -51,17 +51,17 @@ col1, col2, col3 = st.columns(3)
 with col1:
     applicant_age_choices = {"less25": "<25", "25-34": "25-34", "35-44": "35-44","45-54":"45-54","55-64":"55-64","65-74":"65-74",">74":"greater74"}
     applicant_age = st.selectbox('Applicant Age',options=list(applicant_age_choices.keys()), format_func=applicant_age_func)
-    applicant_sex_choices = {1: "1", 2: "2", 3: "3"}
+    applicant_sex_choices = {"1": "1", "2": "2", "3": "3","6":"6"}
     applicant_sex = st.selectbox('Applicant Sex',options=list(applicant_sex_choices.keys()), format_func=applicant_sex_func)
-    co_applicant_sex_choices = {1: "1", 2: "2", 3: "3"}
+    co_applicant_sex_choices = {"1": "1", "2": "2", "3": "3","5":"5","6":"6"}
     co_applicant_sex = st.selectbox('Coapplicant Sex',options=list(co_applicant_sex_choices.keys()), format_func=co_applicant_sex_func)
-    applicant_ethnicity_1_choices = {1: "1", 2: "2", 3: "3"}
+    applicant_ethnicity_1_choices = {"1": "1", "2": "2", "3": "3","11":"11","12":"12","13":"13","14":"14"}
     applicant_ethnicity_1 = st.selectbox('Applicant Ethnicity 1',options=list(applicant_ethnicity_1_choices.keys()), format_func=applicant_ethnicity_1_func)
-    co_applicant_ethnicity_1_choices = {1: "1", 2: "2", 3: "3"}
+    co_applicant_ethnicity_1_choices = {"1": "1", "2": "2", "3": "3","5":"5","11":"11","12":"12","13":"13","14":"14"}
     co_applicant_ethnicity_1 = st.selectbox('Coapplicant Ethnicity 1',options=list(co_applicant_ethnicity_1_choices.keys()), format_func=co_applicant_ethnicity_1_func)
-    applicant_race_1_choices = {1: "1", 2: "2", 3: "3"}
+    applicant_race_1_choices = {"1": "1", "2": "2", "3": "3","4": "4","5":"5","6":"6","21":"21","22":"22","23":"23","24":"24","25":"25","26":"26","27":"27","41":"41","42":"42","43":"43","44":"44"}
     applicant_race_1 = st.selectbox('Applicant Race 1',options=list(applicant_race_1_choices.keys()), format_func=applicant_race_1_func)
-    co_applicant_race_1_choices = {1: "1", 2: "2", 3: "3"}
+    co_applicant_race_1_choices = {"1": "1", "2": "2", "3": "3","4": "4","5":"5","6":"6","8":"8","21":"21","22":"22","23":"23","24":"24","25":"25","26":"26","27":"27","41":"41","42":"42","43":"43"}
     co_applicant_race_1 = st.selectbox('Coapplicant Race 1',options=list(co_applicant_race_1_choices.keys()), format_func=co_applicant_race_1_func)
     state_code_choices = {1: "1", 2: "2", 3: "3"}
     state_code = st.selectbox('State Code',options=list(state_code_choices.keys()), format_func=state_code_func)
