@@ -27,4 +27,4 @@ loan_type = st.selectbox('Loan Type',options=list(loan_type_choices.keys()), for
 #prediction = iris_rf_model.predict(features)
 
 st.subheader("Prediction:")
-#st.write(iris.target_names[prediction])
+st.write(loan_type)
