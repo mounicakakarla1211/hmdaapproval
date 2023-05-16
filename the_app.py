@@ -104,12 +104,12 @@ if st.button('Submit'):
     catVal = [[applicant_age, applicant_sex, co_applicant_sex, applicant_ethnicity_1, co_applicant_ethnicity_1, applicant_race_1, co_applicant_race_1, state_code,
               debt_to_income_ratio, applicant_credit_scoring_model, co_applicant_credit_scoring_model, loan_type, loan_purpose, construction_method, occupancy_type,
               purchaser_type, business_or_commercial_purpose]]
-    df_cat =pd.DataFrame(catVal, columns=["applicant_age","applicant_sex","co_applicant_sex","applicant_ethnicity_1","co_applicant_ethnicity_1","applicant_race_1","co_applicant_race_1","state_code",
-              "debt_to_income_ratio","applicant_credit_scoring_model","co_applicant_credit_scoring_model","loan_type","loan_purpose","construction_method","occupancy_type",
-              "purchaser_type","business_or_commercial_purpose"])
+    df_cat =pd.DataFrame(catVal, columns=["applicant_age", "applicant_sex", "co_applicant_sex", "applicant_ethnicity_1", "co_applicant_ethnicity_1", "applicant_race_1", "co_applicant_race_1", "state_code",
+              "debt_to_income_ratio", "applicant_credit_scoring_model", "co_applicant_credit_scoring_model", "loan_type", "loan_purpose", "construction_method", "occupancy_type",
+              "purchaser_type", "business_or_commercial_purpose"])
     scaler = RobustScaler()
-    numDF = pd.DataFrame(scaler.fit_transform(df_num.values),columns=df_num.columns,index=df_num.index)
-    catDF = pd.get_dummies(df_cat,drop_first=True)
+    numDF = pd.DataFrame(scaler.fit_transform(df_num.values), columns=df_num.columns, index=df_num.index)
+    catDF = pd.get_dummies(df_cat, drop_first=True)
     X = pd.concat([catDF, numDF],axis=1)
     st.subheader("Prediction:")
     st.write(X.shape)
