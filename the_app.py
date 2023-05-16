@@ -105,21 +105,18 @@ if st.button('Submit'):
     numVal_Scaled = scaler.fit_transform(numVal.reshape(-1,1))
     numVal_Scaled  = numVal_Scaled.reshape(1,-1)
     df_num = pd.DataFrame(numVal_Scaled, index=[0],columns=["combined_loan_to_value_ratio","loan_term","income_log","loanamount_log"])
-    catVal = np.array([applicant_age, applicant_sex, co_applicant_sex, applicant_ethnicity_1, co_applicant_ethnicity_1, applicant_race_1, co_applicant_race_1, state_code,
-              debt_to_income_ratio, applicant_credit_scoring_model, co_applicant_credit_scoring_model, loan_type, loan_purpose, construction_method, occupancy_type,
-              purchaser_type, business_or_commercial_purpose])
-    st.write(catVal)
-    catVal_t  = catVal.reshape(1,-1)
-    st.write(catVal_t)
-    df_cat = pd.DataFrame(catVal_t, index=[0], columns=["applicant_age", "applicant_sex", "co_applicant_sex", "applicant_ethnicity_1", "co_applicant_ethnicity_1", "applicant_race_1", "co_applicant_race_1", "state_code",
-              "debt_to_income_ratio", "applicant_credit_scoring_model", "co_applicant_credit_scoring_model", "loan_type", "loan_purpose", "construction_method", "occupancy_type",
-              "purchaser_type", "business_or_commercial_purpose"])
-    catDF = pd.get_dummies(df_cat.T, drop_first=True)    
+    df_cat = pd.DataFrame({"applicant_age":[applicant_age], "applicant_sex":[applicant_sex], "co_applicant_sex":[co_applicant_sex], 
+                           "applicant_ethnicity_1":[applicant_ethnicity_1], "co_applicant_ethnicity_1":[co_applicant_ethnicity_1], 
+                           "applicant_race_1":[applicant_race_1], "co_applicant_race_1":[co_applicant_race_1], "state_code":[state_code],
+                           "debt_to_income_ratio":[debt_to_income_ratio], "applicant_credit_scoring_model":[applicant_credit_scoring_model], 
+                           "co_applicant_credit_scoring_model":[co_applicant_credit_scoring_model], "loan_type":[loan_type], "loan_purpose":[loan_purpose], 
+                           "construction_method":[construction_method], "occupancy_type":[occupancy_type],"purchaser_type":[purchaser_type],
+                           "business_or_commercial_purpose":[business_or_commercial_purpose]})
+    catDF = pd.get_dummies(df_cat, drop_first=True)    
     st.write(catDF)
     X = pd.concat([catDF, df_num],axis=1)
     st.subheader("Prediction:")
     st.write(numVal)
-    st.write(catVal)
     st.write(df_num)
     st.write(df_cat)
     st.write(catDF)
