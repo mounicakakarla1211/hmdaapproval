@@ -133,7 +133,7 @@ if st.button('Submit'):
        'co_applicant_sex', 'applicant_ethnicity_1', 'co_applicant_ethnicity_1',
        'applicant_race_1', 'co_applicant_race_1', 'state_code'],dtype=int)    
     st.write(catDF)
-    initial_column_df = pd.read_csv('model_columns.csv')
+    initial_column_df = pd.read_csv('model_catcolumns.csv')
     columns = initial_column_df['Features']
     fixed_d = fix_columns(catDF, columns)
     st.write(len(columns))
