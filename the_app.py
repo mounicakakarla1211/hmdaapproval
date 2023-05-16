@@ -68,7 +68,7 @@ with col1:
     
 with col2:
     income = st.text_input('Income', '')
-    debt_to_income_ratio_choices = {1: "1", 2: "2", 3: "3"}
+    debt_to_income_ratio_choices = {"Missing":"Missing","less20%" :"<20%","20%-less30%":"20%-<30%","30%-less36%":"30%-<36%","36":"36","37":"37","38":"38","39":"39","40":"40","41":"41","42":"42","43":"43","44":"44","45":"45","46":"46","47":"47","48":"48","49":"49","50%-60%":"50%-60%","greater60%":">60%"}         
     debt_to_income_ratio = st.selectbox('Debt to Income Ratio',options=list(debt_to_income_ratio_choices.keys()), format_func=debt_to_income_ratio_func)
     applicant_credit_scoring_model_choices = {1: "1", 2: "2", 3: "3"}
     applicant_credit_scoring_model = st.selectbox('Applicant Credit Scoring Model',options=list(applicant_credit_scoring_model_choices.keys()), format_func=applicant_credit_scoring_model_func)
