@@ -101,7 +101,7 @@ if st.button('Submit'):
     lt = float(loan_term)
     numVal = np.array([clvr, lt, income_log, loanamount_log])
     scaler = RobustScaler()
-    st.write(scaler.fit_transform(numVal.T))
+    st.write(scaler.fit_transform(numVal.reshape(-1,1)))
     df_num = pd.DataFrame(numVal, columns=["combined_loan_to_value_ratio","loan_term","income_log","loanamount_log"])
     catVal = np.array([applicant_age, applicant_sex, co_applicant_sex, applicant_ethnicity_1, co_applicant_ethnicity_1, applicant_race_1, co_applicant_race_1, state_code,
               debt_to_income_ratio, applicant_credit_scoring_model, co_applicant_credit_scoring_model, loan_type, loan_purpose, construction_method, occupancy_type,
