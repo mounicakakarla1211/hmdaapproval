@@ -113,7 +113,7 @@ if st.button('Submit'):
               "debt_to_income_ratio", "applicant_credit_scoring_model", "co_applicant_credit_scoring_model", "loan_type", "loan_purpose", "construction_method", "occupancy_type",
               "purchaser_type", "business_or_commercial_purpose"])
     catDF = pd.get_dummies(df_cat.T, drop_first=True)
-    X = pd.concat([catDF, df_num],axis=1)
+    X = pd.concat([catDF.T, df_num],axis=1)
     st.subheader("Prediction:")
     st.write(numVal)
     st.write(catVal)
