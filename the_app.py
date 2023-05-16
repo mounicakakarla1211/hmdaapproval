@@ -4,8 +4,43 @@ import joblib
 import numpy as np
 from sklearn import datasets
 
-def format_func(choices,option):
-    return choices[option]
+def applicant_age_func(option):
+    return applicant_age_choices[option]
+def applicant_sex_func(option):
+    return applicant_sex_choices[option]
+def co_applicant_sex_func(option):
+    return co_applicant_sex_choices[option]
+def applicant_ethnicity_1_func(option):
+    return applicant_ethnicity_1_choices[option]
+def co_applicant_ethnicity_1_func(option):
+    return co_applicant_ethnicity_1_choices[option]
+def applicant_race_1_func(option):
+    return applicant_race_1_choices[option]
+def co_applicant_race_1_func(option):
+    return co_applicant_race_1_choices[option]
+def state_code_func(option):
+    return state_code_choices[option]
+
+def debt_to_income_ratio_func(option):
+    return debt_to_income_ratio_choices[option]
+def applicant_credit_scoring_model_func(option):
+    return applicant_credit_scoring_model_choices[option]
+def co_applicant_credit_scoring_model_func(option):
+    return co_applicant_credit_scoring_model_choices[option]
+
+def construction_method_func(option):
+    return construction_method_choices[option]
+def occupancy_type_func(option):
+    return occupancy_type_choices[option]
+def purchaser_type_func(option):
+    return purchaser_type_choices[option]
+def business_or_commercial_purpose_func(option):
+    return business_or_commercial_purpose_choices[option]
+def loan_type_func(option):
+    return loan_type_choices[option]
+def loan_purpose_func(option):
+    return loan_purpose_choices[option]
+
 
 st.title("HMDA Loan Approval Predictor")
 
@@ -15,7 +50,7 @@ Enter the application details:
 col1, col2, col3 = st.columns(3)
 with col1:
     applicant_age_choices = {1: "1", 2: "2", 3: "3"}
-    applicant_age = st.selectbox('Applicant Age',options=list(applicant_age_choices.keys()), format_func=format_func(applicant_age_choices))
+    applicant_age = st.selectbox('Applicant Age',options=list(applicant_age_choices.keys()), format_func=applicant_age_func))
     applicant_sex_choices = {1: "1", 2: "2", 3: "3"}
     applicant_sex = st.selectbox('Applicant Sex',options=list(applicant_sex_choices.keys()), format_func=applicant_sex_func)
     co_applicant_sex_choices = {1: "1", 2: "2", 3: "3"}
@@ -42,7 +77,7 @@ with col2:
 with col3:
     combined_loan_to_value_ratio = st.text_input('Combined Loan To Value Ratio', '')
     construction_method_choices = {1: "1", 2: "2"}
-    construction_method = st.selectbox('Construction Method',options=list(construction_method_choices.keys()), format_func=loan_purpose_func)
+    construction_method = st.selectbox('Construction Method',options=list(construction_method_choices.keys()), format_func=construction_method_func)
     occupancy_type_choices = {1: "1", 2: "2", 3: "3"}
     occupancy_type = st.selectbox('Occupancy Type',options=list(occupancy_type_choices.keys()), format_func=occupancy_type_func)
     purchaser_type_choices = {1: "1", 2: "2", 3: "3"}
