@@ -68,27 +68,27 @@ with col1:
     
 with col2:
     income = st.text_input('Income', '')
-    debt_to_income_ratio_choices = {"Missing":"Missing","less20%" :"<20%","20%-less30%":"20%-<30%","30%-less36%":"30%-<36%","36":"36","37":"37","38":"38","39":"39","40":"40","41":"41","42":"42","43":"43","44":"44","45":"45","46":"46","47":"47","48":"48","49":"49","50%-60%":"50%-60%","greater60%":">60%"}         
+    debt_to_income_ratio_choices = {"less20%" :"<20%","20%-less30%":"20%-<30%","30%-less36%":"30%-<36%","36":"36","37":"37","38":"38","39":"39","40":"40","41":"41","42":"42","43":"43","44":"44","45":"45","46":"46","47":"47","48":"48","49":"49","50%-60%":"50%-60%","greater60%":">60%","Missing":"Missing"}         
     debt_to_income_ratio = st.selectbox('Debt to Income Ratio',options=list(debt_to_income_ratio_choices.keys()), format_func=debt_to_income_ratio_func)
-    applicant_credit_scoring_model_choices = {1: "1", 2: "2", 3: "3"}
+    applicant_credit_scoring_model_choices = {"1": "1", "2": "2", "3": "3","9":"9"}
     applicant_credit_scoring_model = st.selectbox('Applicant Credit Scoring Model',options=list(applicant_credit_scoring_model_choices.keys()), format_func=applicant_credit_scoring_model_func)
-    co_applicant_credit_scoring_model_choices = {1: "1", 2: "2", 3: "3"}
+    co_applicant_credit_scoring_model_choices = {"1": "1", "2": "2", "3": "3","9":"9","10":"10"}
     co_applicant_credit_scoring_model = st.selectbox('Coapplicant Credit Scoring Model',options=list(co_applicant_credit_scoring_model_choices.keys()), format_func=co_applicant_credit_scoring_model_func)
     loan_amount = st.text_input('Loan Amount', '')
-    loan_type_choices = {1: "1", 2: "2", 3: "3"}
+    loan_type_choices = {"1": "1", "2": "2", "3": "3"}
     loan_type = st.selectbox('Loan Type',options=list(loan_type_choices.keys()), format_func=loan_type_func)
-    loan_purpose_choices = {1: "1", 2: "2", 4: "4", 31:"31", 32:"32"}
+    loan_purpose_choices = {"1": "1", "2": "2", "4": "4", "31":"31", "32":"32"}
     loan_purpose = st.selectbox('Loan Purpose',options=list(loan_purpose_choices.keys()), format_func=loan_purpose_func)
     loan_term = st.text_input('Loan Term', '')
 with col3:
     combined_loan_to_value_ratio = st.text_input('Combined Loan To Value Ratio', '')
-    construction_method_choices = {1: "1", 2: "2"}
+    construction_method_choices = {"1": "1", "2": "2"}
     construction_method = st.selectbox('Construction Method',options=list(construction_method_choices.keys()), format_func=construction_method_func)
-    occupancy_type_choices = {1: "1", 2: "2", 3: "3"}
+    occupancy_type_choices = {"1": "1", "2": "2", "3": "3"}
     occupancy_type = st.selectbox('Occupancy Type',options=list(occupancy_type_choices.keys()), format_func=occupancy_type_func)
-    purchaser_type_choices = {1: "1", 2: "2", 3: "3"}
+    purchaser_type_choices = {"0":"0","1": "1", "2": "2", "3": "3","5":"5","6":"6","8":"8"}
     purchaser_type = st.selectbox('Purchase Type',options=list(purchaser_type_choices.keys()), format_func=purchaser_type_func)
-    business_or_commercial_purpose_choices = {1: "1", 2: "2", 3: "3"}
+    business_or_commercial_purpose_choices = {"1": "1", "2": "2"}
     business_or_commercial_purpose = st.selectbox('Business or Commericial Purpose',options=list(business_or_commercial_purpose_choices.keys()), format_func=business_or_commercial_purpose_func)
 #features = np.array([[sepal_length, sepal_width, petal_length, petal_width]])
 
