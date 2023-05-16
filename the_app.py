@@ -10,7 +10,7 @@ st.write("""
 Enter the application details:
 """)
 
-sepal_length = st.slider("Sepal Length (cm)", 4.3, 7.9, 5.8)
+loan_amount = st.text_input('Loan Amount', '')
 sepal_width = st.slider("Sepal Width (cm)", 2.0, 4.4, 3.1)
 petal_length = st.slider("Petal Length (cm)", 1.0, 6.9, 4.7)
 petal_width = st.slider("Petal Width (cm)", 0.1, 2.5, 1.4)
