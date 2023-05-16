@@ -40,7 +40,7 @@ def loan_type_func(option):
     return loan_type_choices[option]
 def loan_purpose_func(option):
     return loan_purpose_choices[option]
-
+st.set_page_config(layout="wide")
 
 st.title("HMDA Loan Approval Predictor")
 
