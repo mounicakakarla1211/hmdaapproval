@@ -133,11 +133,12 @@ if st.button('Submit'):
     columns = initial_column_df['Features']
     fixed_d = fix_columns(catDF, columns)
     X = pd.concat([fixed_d, df_num],axis=1)
+    st.subheader("Prediction:")
     hmdannmodel = pickle.load(open('nn_reg.pkl', 'rb'))
     prediction = hmdannmodel.predict(X)
     if prediction[0] == 1:
-        st.subheader("Approved")
+        st.write("Approved")
     else:
-        st.subheader("Not Approved")
+        st.write("Not Approved")
    
 
