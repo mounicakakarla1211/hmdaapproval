@@ -62,10 +62,6 @@ def fix_columns(df, columns):
 st.set_page_config(layout="wide")
 
 st.title("HMDA Loan Approval Predictor")
-
-st.write("""
-Enter the application details:
-""")
 col1, col2, col3,col4 = st.columns(4)
 with col2:
     applicant_sex_choices = {"1": "1", "2": "2", "3": "3","6":"6"}
