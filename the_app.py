@@ -67,13 +67,7 @@ st.write("""
 Enter the application details:
 """)
 col1, col2, col3,col4 = st.columns(4)
-with col1:
-    applicant_age_choices = {"less25": "<25", "25-34": "25-34", "35-44": "35-44","45-54":"45-54","55-64":"55-64","65-74":"65-74",">74":"greater74"}
-    applicant_age = st.selectbox('Applicant Age',options=list(applicant_age_choices.keys()), format_func=applicant_age_func)
-    applicant_sex_choices = {"1": "1", "2": "2", "3": "3","6":"6"}
-    applicant_sex = st.selectbox('Applicant Sex',options=list(applicant_sex_choices.keys()), format_func=applicant_sex_func)
-    co_applicant_sex_choices = {"1": "1", "2": "2", "3": "3","5":"5","6":"6"}
-    co_applicant_sex = st.selectbox('Coapplicant Sex',options=list(co_applicant_sex_choices.keys()), format_func=co_applicant_sex_func)
+with col2:
     applicant_ethnicity_1_choices = {"1": "1", "2": "2", "3": "3","11":"11","12":"12","13":"13","14":"14"}
     applicant_ethnicity_1 = st.selectbox('Applicant Ethnicity 1',options=list(applicant_ethnicity_1_choices.keys()), format_func=applicant_ethnicity_1_func)
     co_applicant_ethnicity_1_choices = {"1": "1", "2": "2", "3": "3","5":"5","11":"11","12":"12","13":"13","14":"14"}
@@ -85,7 +79,7 @@ with col1:
     state_code_choices = {"AL":"Alabama","AK":"Alaska","AZ":"Arizona","AR":"Arkansas","CA":"California","CO":"Colorado","CT":"Connecticut","DE":"Delaware","FL":"Florida","GA":"Georgia","HI":"Hawaii","ID":"Idaho","IL":"Illinois","IN":"Indiana","IA":"Iowa","KS":"Kansas","KY":"Kentucky","LA":"Louisiana","ME":"Maine","MD":"Maryland","MA":"Massachusetts","MI":"Michigan","MN":"Minnesota","MS":"Mississippi","MO":"Missouri","MT":"Montana","NE":"Nebraska","NV":"Nevada","NH":"New Hampshire","NJ":"New Jersey","NM":"New Mexico","NY":"New York","NC":"North Carolina","ND":"North Dakota","OH":"Ohio","OK":"Oklahoma","OR":"Oregon","PA":"Pennsylvania","RI":"Rhode Island","SC":"South Carolina","SD":"South Dakota","TN":"Tennessee","TX":"Texas","UT":"Utah","VT":"Vermont","VA":"Virginia","WA":"Washington","WV":"West Virginia","WI":"Wisconsin","WY":"Wyoming"}
     state_code = st.selectbox('State Code',options=list(state_code_choices.keys()), format_func=state_code_func)
     
-with col2:
+with col3:
     income = st.text_input('Income', '')
     debt_to_income_ratio_choices = {"less20%" :"<20%","20%-less30%":"20%-<30%","30%-less36%":"30%-<36%","36":"36","37":"37","38":"38","39":"39","40":"40","41":"41","42":"42","43":"43","44":"44","45":"45","46":"46","47":"47","48":"48","49":"49","50%-60%":"50%-60%","greater60%":">60%","Missing":"Missing"}         
     debt_to_income_ratio = st.selectbox('Debt to Income Ratio',options=list(debt_to_income_ratio_choices.keys()), format_func=debt_to_income_ratio_func)
@@ -93,7 +87,13 @@ with col2:
     applicant_credit_scoring_model = st.selectbox('Applicant Credit Scoring Model',options=list(applicant_credit_scoring_model_choices.keys()), format_func=applicant_credit_scoring_model_func)
     co_applicant_credit_scoring_model_choices = {"1": "1", "2": "2", "3": "3","9":"9","10":"10"}
     co_applicant_credit_scoring_model = st.selectbox('Coapplicant Credit Scoring Model',options=list(co_applicant_credit_scoring_model_choices.keys()), format_func=co_applicant_credit_scoring_model_func)
-with col3:
+with col1:
+    applicant_age_choices = {"less25": "<25", "25-34": "25-34", "35-44": "35-44","45-54":"45-54","55-64":"55-64","65-74":"65-74",">74":"greater74"}
+    applicant_age = st.selectbox('Applicant Age',options=list(applicant_age_choices.keys()), format_func=applicant_age_func)
+    applicant_sex_choices = {"1": "1", "2": "2", "3": "3","6":"6"}
+    applicant_sex = st.selectbox('Applicant Sex',options=list(applicant_sex_choices.keys()), format_func=applicant_sex_func)
+    co_applicant_sex_choices = {"1": "1", "2": "2", "3": "3","5":"5","6":"6"}
+    co_applicant_sex = st.selectbox('Coapplicant Sex',options=list(co_applicant_sex_choices.keys()), format_func=co_applicant_sex_func)
     construction_method_choices = {"1": "1", "2": "2"}
     construction_method = st.selectbox('Construction Method',options=list(construction_method_choices.keys()), format_func=construction_method_func)
     occupancy_type_choices = {"1": "1", "2": "2", "3": "3"}
