@@ -66,7 +66,7 @@ st.title("HMDA Loan Approval Predictor")
 st.write("""
 Enter the application details:
 """)
-col1, col2, col3 = st.columns(3)
+col1, col2, col3,col4 = st.columns(4)
 with col1:
     applicant_age_choices = {"less25": "<25", "25-34": "25-34", "35-44": "35-44","45-54":"45-54","55-64":"55-64","65-74":"65-74",">74":"greater74"}
     applicant_age = st.selectbox('Applicant Age',options=list(applicant_age_choices.keys()), format_func=applicant_age_func)
@@ -93,14 +93,7 @@ with col2:
     applicant_credit_scoring_model = st.selectbox('Applicant Credit Scoring Model',options=list(applicant_credit_scoring_model_choices.keys()), format_func=applicant_credit_scoring_model_func)
     co_applicant_credit_scoring_model_choices = {"1": "1", "2": "2", "3": "3","9":"9","10":"10"}
     co_applicant_credit_scoring_model = st.selectbox('Coapplicant Credit Scoring Model',options=list(co_applicant_credit_scoring_model_choices.keys()), format_func=co_applicant_credit_scoring_model_func)
-    loan_amount = st.text_input('Loan Amount', '')
-    loan_type_choices = {"1": "1", "2": "2", "3": "3"}
-    loan_type = st.selectbox('Loan Type',options=list(loan_type_choices.keys()), format_func=loan_type_func)
-    loan_purpose_choices = {"1": "1", "2": "2", "4": "4", "31":"31", "32":"32"}
-    loan_purpose = st.selectbox('Loan Purpose',options=list(loan_purpose_choices.keys()), format_func=loan_purpose_func)
-    loan_term = st.text_input('Loan Term', '')
 with col3:
-    combined_loan_to_value_ratio = st.text_input('Combined Loan To Value Ratio', '')
     construction_method_choices = {"1": "1", "2": "2"}
     construction_method = st.selectbox('Construction Method',options=list(construction_method_choices.keys()), format_func=construction_method_func)
     occupancy_type_choices = {"1": "1", "2": "2", "3": "3"}
@@ -109,6 +102,14 @@ with col3:
     purchaser_type = st.selectbox('Purchase Type',options=list(purchaser_type_choices.keys()), format_func=purchaser_type_func)
     business_or_commercial_purpose_choices = {"1": "1", "2": "2"}
     business_or_commercial_purpose = st.selectbox('Business or Commericial Purpose',options=list(business_or_commercial_purpose_choices.keys()), format_func=business_or_commercial_purpose_func)
+with col4:
+    combined_loan_to_value_ratio = st.text_input('Combined Loan To Value Ratio', '')
+    loan_amount = st.text_input('Loan Amount', '')
+    loan_type_choices = {"1": "1", "2": "2", "3": "3"}
+    loan_type = st.selectbox('Loan Type',options=list(loan_type_choices.keys()), format_func=loan_type_func)
+    loan_purpose_choices = {"1": "1", "2": "2", "4": "4", "31":"31", "32":"32"}
+    loan_purpose = st.selectbox('Loan Purpose',options=list(loan_purpose_choices.keys()), format_func=loan_purpose_func)
+    loan_term = st.text_input('Loan Term', '')    
 if st.button('Submit'):
     income_log = math.log(int(income))
     loanamount_log = math.log(float(loan_amount))
